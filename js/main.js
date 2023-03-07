@@ -37,6 +37,7 @@ function changeSlide(e) {
     const slides = frame.querySelectorAll("img");
     let showing = document.querySelector(".current");
     let nextUp = "";
+    let caption =document.getElementById("caption");
   
     if(!e || e.target.className == 'next-btn') {
       nextUp = showing.nextElementSibling;
@@ -60,4 +61,12 @@ function changeSlide(e) {
     // activate next image
     nextUp.classList.remove("hide");
     nextUp.classList.add("current");
+
+    // grab the alt text from current image
+    //let altText = nextUp.getAttribute('alt');
+    let altText = nextUp.alt;
+    
+
+    // change the figcaption to the alt text
+    caption.innerText = altText;
   }
